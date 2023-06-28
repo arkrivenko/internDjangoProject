@@ -1,0 +1,16 @@
+{% extends 'tickerapp/base.html' %}
+
+{% block title %}
+  Create request
+{% endblock %}
+
+{% block body %}
+  <h1>Create mp4 file</h1>
+  <div>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Create</button>
+    </form>
+  </div>
+{% endblock %}
