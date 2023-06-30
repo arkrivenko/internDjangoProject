@@ -28,8 +28,7 @@ class RequestCreateView(CreateView):
         images = []
         width = 100
         height = 100
-
-        font = ImageFont.truetype('arial.ttf', 40)
+        font = ImageFont.truetype("fonts/ArialRegular.ttf", 40)
         text_size = int(font.getlength(text))
         log.debug("Text size: %s", text_size)
         start_position = -1 * text_size
