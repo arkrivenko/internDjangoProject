@@ -4,5 +4,5 @@ from .views import RequestCreateView
 app_name = "tickerapp"
 
 urlpatterns = [
-    path("create/", RequestCreateView.as_view(), name="mp4maker"),
+    path("", RequestCreateView.as_view(), name="mp4maker"),
 ]

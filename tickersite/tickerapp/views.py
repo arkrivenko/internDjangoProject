@@ -48,7 +48,7 @@ class RequestCreateView(CreateView):
         duration = int(3550 / len(images))
         log.debug("Duration: %s", duration)
         images[0].save(
-            'ticker.gif',
+            'content/ticker.gif',
             save_all=True,
             append_images=images[1:],
             optimize=False,
@@ -56,12 +56,12 @@ class RequestCreateView(CreateView):
             loop=0
         )
 
-        clip = editor.VideoFileClip('ticker.gif')
-        clip.write_videofile('ticker.mp4')
+        clip = editor.VideoFileClip('content/ticker.gif')
+        clip.write_videofile('content/ticker.mp4')
         clip.close()
 
         filename = "ticker.mp4"
-        file = FileWrapper(open(r".\ticker.mp4", "rb"))
+        file = FileWrapper(open("content/ticker.mp4", "rb"))
         response = HttpResponse(file, content_type='video/mp4')
         response["Content-Disposition"] = f"attachment; filename={filename}"
         log.info("Sending a mp4 file")
